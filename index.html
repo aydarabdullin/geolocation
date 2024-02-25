@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Geolocation Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+<html>
+ <body>
+ 
+  <h1>Get my location</h1>
+
+  <button onclick="getLocation()">Push me</button>
+
+  <p id="demo"></p>
+
+  <script>
+   var x = document.getElementById("demo");
+
+   function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+     } else { 
+        x.innerHTML = "Браузер не поддерживает геолокацию.";
+       }
+   }
+
+   function showPosition(position) {
+    x.innerHTML = "Широта: " + position.coords.latitude + 
+    "<br>Долгота: " + position.coords.longitude;
+   }
+  </script>
+
+ </body>
+</html>
